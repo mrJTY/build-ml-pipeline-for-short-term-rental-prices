@@ -1,5 +1,7 @@
 main:
-  components_repository: "https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices#components"
+  # Changed from remote repo to use local components with Python 3.13 fixes
+  # components_repository: "https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices#components"
+  components_repository: "./components"
   # All the intermediate files will be copied to this directory at the end of the run.
   # Set this to null if you are running in prod
   project_name: nyc_airbnb
