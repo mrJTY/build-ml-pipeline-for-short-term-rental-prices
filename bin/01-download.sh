@@ -2,5 +2,6 @@
 
 set -e
 
-mlflow run . \
+conda run -n components \
+  mlflow run . \
   -P steps=download

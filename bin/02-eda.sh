@@ -2,4 +2,5 @@
 
 set -e
 
-mlflow run src/eda
+conda run -n components \
+  mlflow run src/eda
