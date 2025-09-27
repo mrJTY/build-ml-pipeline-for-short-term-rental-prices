@@ -66,7 +66,7 @@ def test_row_count(data):
     rows = data.shape[0]
     lower_row_limit = 1500
     upper_row_limit = 1000000
-    assert rows < lower_row_limit
+    assert rows > lower_row_limit
     assert rows < upper_row_limit
 
 def test_price_range(data, min_price, max_price):

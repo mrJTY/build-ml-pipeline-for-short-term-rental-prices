@@ -2,5 +2,5 @@
 
 set -e
 
-conda run -n components \
-  python main.py main.steps=data_check
+export PATH="/opt/miniconda3/envs/components/bin:$PATH"
+python main.py main.steps=data_check
