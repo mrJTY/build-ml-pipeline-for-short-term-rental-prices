@@ -3,5 +3,4 @@
 set -e
 
 conda run -n components \
-  mlflow run . \
-  -P steps="data_check"
+  python main.py main.steps=data_check
