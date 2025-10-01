@@ -4,4 +4,5 @@ set -e
 
 conda run -n components \
   mlflow run . \
-  -P steps=download
+  -P steps=data_split \
+  --env-manager=local
