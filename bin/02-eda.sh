@@ -2,4 +2,5 @@
 
 set -e
 
-mlflow run src/eda
+conda run -n nyc_airbnb_dev \
+  mlflow run src/eda

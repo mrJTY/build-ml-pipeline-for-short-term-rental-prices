@@ -2,5 +2,7 @@
 
 set -e
 
-export PATH="/opt/miniconda3/envs/components/bin:$PATH"
-python main.py main.steps=data_check
+conda run -n components \
+  mlflow run . \
+  -P steps=data_check \
+  --env-manager=local
