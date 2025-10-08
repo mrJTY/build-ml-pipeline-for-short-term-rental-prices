@@ -388,6 +388,10 @@ last one we produced in the previous step. Add a tag ``reference`` to it by clic
 in the Aliases section on the right:
 
 ![reference tag](images/wandb-tag-data-test.png "adding a reference tag")
+
+My reference tag:
+![](images/my-reference-tag.png)
+
  
 Now we are ready to add some tests. In the starter kit you can find a ``data_tests`` step
 that you need to complete. Let's start by appending to 
@@ -491,6 +495,11 @@ Go to the artifact section of the selected job, and select the
 `model_export` output artifact.  Add a ``prod`` tag to it to mark it as 
 "production ready".
 
+### Picking my best model
+
+Running `./bin/09_hyperparameter_sweep.py` will do a hyperparameter sweep and `./bin/10_tag_best_model.py` will find and tag
+the best model with `prod`.
+
 ### Test
 Use the provided step ``test_regression_model`` to test your production model against the
 test set. Implement the call to this component in the `main.py` file. As usual you can see the parameters in the
@@ -509,6 +518,10 @@ activate it explicitly on the command line:
 ### Visualize the pipeline
 You can now go to W&B, go the Artifacts section, select the model export artifact then click on the
 ``Graph view`` tab. You will see a representation of your pipeline.
+
+Pipeline visualised:
+
+![](./images/my-graph-visual.png)
 
 ### Release the pipeline
 First copy the best hyper parameters you found in your ``configuration.yml`` so they become the
@@ -587,6 +600,9 @@ If you see the any error while running the command:
 ```
 
 Please, make sure all steps are using **the same** python version and that you have **conda installed**. Additionally, *mlflow* and *wandb* packages are crucial and should have the same version.
+
+> NOTE ON PACKAGES: I kept Python 3.13 but I was having build issues with the packages on my system. I updated the dependencies to make this run on my machine.
+> Some dependencies have already been renamed since this repo was last updated.
 
 
 ## License
