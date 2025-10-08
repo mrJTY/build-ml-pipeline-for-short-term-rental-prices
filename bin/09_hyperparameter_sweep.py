@@ -62,7 +62,6 @@ def main():
     try:
         subprocess.run(cmd, check=True)
         print("Hyperparameter sweep complete!")
-        print("Check W&B for results: https://wandb.ai/<your-username>/nyc_airbnb")
     except subprocess.CalledProcessError as e:
         print(f"Error during sweep: {e}", file=sys.stderr)
         sys.exit(1)
