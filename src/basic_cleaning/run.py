@@ -14,6 +14,7 @@ MAX_LONGITUDE = -73.50  # Eastern boundary (Queens)
 MIN_LATITUDE = 40.5  # Southern boundary (Staten Island)
 MAX_LATITUDE = 41.2  # Northern boundary (Bronx)
 
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
@@ -42,9 +43,14 @@ def go(args):
     df['last_review'] = pd.to_datetime(df['last_review'])
 
     # Drop rows with invalid coordinates (as mentioned in README for sample2.csv)
-    logger.info("Filtering geographic outliers")
-    idx = df['longitude'].between(MIN_LONGITUDE, MAX_LONGITUDE) & df['latitude'].between(MIN_LATITUDE, MAX_LATITUDE)
-    df = df[idx].copy()
+
+    if args.clean_lon_lat:
+        logger.info("Filtering geographic outliers")
+        idx = df['longitude'].between(MIN_LONGITUDE, MAX_LONGITUDE) & df['latitude'].between(MIN_LATITUDE, MAX_LATITUDE)
+        df = df[idx].copy()
+    else:
+        logger.info("No filtering of geographic outliers")
+
     logger.info(f"Data shape after geographic filtering: {df.shape}")
 
     # Save cleaned data
@@ -108,6 +114,13 @@ if __name__ == "__main__":
         "--max_price",
         type=float,
         help="Maximum price for the rental price",
+        required=True
+    )
+
+    parser.add_argument(
+        "--clean_lon_lat",
+        type=bool,
+        help="Flag to toggle lon/lat filtering",
         required=True
     )
 

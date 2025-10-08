@@ -60,7 +60,8 @@ def go(config: DictConfig):
                 "output_description": "Data with outliers and null values removed",
                 "min_price": config["etl"]["min_price"],
                 "max_price": config["etl"]["max_price"],
-            })
+                "clean_lon_lat": config["etl"]["clean_lon_lat"],
+               })
 
         if "data_check" in active_steps:
             uri = os.path.join(hydra.utils.get_original_cwd(), "src", "data_check")
@@ -71,7 +72,7 @@ def go(config: DictConfig):
                 "ref": "sample.csv:reference",
                 "kl_threshold": config["data_check"]["kl_threshold"],
                 "min_price": config["etl"]["min_price"],
-                "max_price": config["etl"]["max_price"]
+                "max_price": config["etl"]["max_price"],
             })
 
         if "data_split" in active_steps:
