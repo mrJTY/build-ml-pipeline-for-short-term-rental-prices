@@ -6,27 +6,27 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: The input artifact that may have unclean data
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: The cleaned output artifact to be saved in wandb
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: The type or tag of an output. eg: cleaned_sample as opposed to raw_data, model_export.
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: The output description, eg: data with outliers removed and cleaned.
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
+        description: Minimum price that for rental prices.
         type: string
 
       max_price:
-        description: ## ADD DESCRIPTION
+        description: Maximum price for the rental price.
         type: string
 
 
